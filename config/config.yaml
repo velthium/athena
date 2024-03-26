@@ -12,7 +12,6 @@ node:
     rpc:
       client_name: athena
       address: https://rpc.mainnet.desmos.network:443
-          
       max_connection: 10
 
     grpc:
@@ -31,6 +30,10 @@ database:
 logging:
   level: debug
   format: text
+
+contracts:
+  tips:
+    code_id: 11
 
 filters:
   supported_subspace_ids: [21]
