@@ -1,0 +1,23 @@
+services:
+  athena:
+    build:
+      context: .
+      dockerfile: AthenaDockerfile
+    volumes:
+      - ./config:/root/.athena/
+    ports:
+      - "8080:8080"
+    command: "athena start"
+  
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: athena_db
+      POSTGRES_USER: athena_user
+      POSTGRES_PASSWORD: athena_password
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+      - ./database/schema:/var/database/schema
+    ports:
+      - "5432:5432"
