@@ -1,0 +1,36 @@
+chain:
+  bech32_prefix: desmos
+  modules:
+    - profiles
+    - subspaces
+    - posts
+    - reactions
+
+node:
+  type: remote
+  config:
+    rpc:
+      client_name: athena
+      address: https://rpc.mainnet.desmos.network:443
+          
+      max_connection: 10
+
+    grpc:
+      address: https://grpc.mainnet.desmos.network:443
+      insecure: false
+
+parsing:
+  worker: 5
+  listen_new_blocks: true
+  parse_old_block: false
+  start_height: 12000000
+
+database: 
+  url: postgres://athena_user:athena_password@postgres:5432/athena_db
+
+logging:
+  level: debug
+  format: text
+
+filters:
+  supported_subspace_ids: [21]
