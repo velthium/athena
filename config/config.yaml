@@ -19,13 +19,13 @@ node:
       insecure: false
 
 parsing:
-  worker: 5
+  workers: 1
   listen_new_blocks: true
-  parse_old_block: false
-  start_height: 12000000
+  parse_old_blocks: true
+  start_height: 13219150
 
 database: 
-  url: postgres://athena_user:athena_password@postgres:5432/athena_db
+  url: postgres://athena_user:athena_password@postgres:5432/athena_db?sslmode=disable
 
 logging:
   level: debug

@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: AthenaDockerfile
+    restart: always
     volumes:
       - ./config:/root/.athena/
     command: "athena start"
@@ -63,3 +64,4 @@ services:
       timeout: 10s
       retries: 5
       start_period: 5s
+      
